@@ -15,7 +15,16 @@ namespace Lists
         {
             ShowHud();
             PickUp("Healing Potion");
-            ShowHud();
+            Drop("A");
+            Drop("Healing Potion");
+            PickUp("Healing Potion");
+            PickUp("Healing Potion");
+            Use("Healing Potion");
+            PickUp("Apple");
+            PickUp("Key");
+            PickUp("Apple");
+            PickUp("Healing Potion");
+            PickUp("Key");
         }
 
         static void ShowHud()
@@ -37,15 +46,44 @@ namespace Lists
             if(Inventory.Count < maxInventory)
             {
                 Inventory.Add(item);
-                Console.WriteLine("Item Added");
+                Console.WriteLine(item + " Added");
             }
             else
             {
                 Console.WriteLine("No room for the " + item);
             }
+            ShowHud();
         }
 
-        
+        static void Drop(string item)
+        {
+            Console.WriteLine("Trying to drop " + item);
+            if (Inventory.Contains(item))
+            {
+                Console.WriteLine("Dropped " + item);
+                Inventory.Remove(item);
+            }
+            else
+            {
+                Console.WriteLine("You don't have any " + item + "s");
+            }
+            ShowHud();
+        }
+
+        static void Use(string item)
+        {
+            Console.WriteLine("Tryin to use " + item);
+            if (Inventory.Contains(item))
+            {
+                Console.WriteLine("Used " + item);
+                Inventory.Remove(item);
+            }
+            else
+            {
+                Console.WriteLine("You don't have any " + item + "s");
+            }
+            ShowHud();
+        }
 
     }
 }
