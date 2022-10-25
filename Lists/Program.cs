@@ -25,6 +25,10 @@ namespace Lists
             PickUp("Apple");
             PickUp("Healing Potion");
             PickUp("Key");
+            PickUp("Key");
+            PickUp("Apple");
+            PickUp("Healing Potion");
+            ClearInventory();
         }
 
         static void ShowHud()
@@ -82,6 +86,13 @@ namespace Lists
             {
                 Console.WriteLine("You don't have any " + item + "s");
             }
+            ShowHud();
+        }
+
+        static void ClearInventory()
+        {
+            Console.WriteLine("The player has died and lost all their stuff");
+            Inventory.Clear();
             ShowHud();
         }
 
