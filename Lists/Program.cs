@@ -13,7 +13,7 @@ namespace Lists
 
         static void Main(string[] args)
         {
-            ShowHud();
+            ShowInventory();
             PickUp("Healing Potion");
             Drop("A");
             Drop("Healing Potion");
@@ -31,7 +31,7 @@ namespace Lists
             ClearInventory();
         }
 
-        static void ShowHud()
+        static void ShowInventory()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Inventory");
@@ -56,7 +56,7 @@ namespace Lists
             {
                 Console.WriteLine("No room for the " + item);
             }
-            ShowHud();
+            ShowInventory();
         }
 
         static void Drop(string item)
@@ -71,7 +71,7 @@ namespace Lists
             {
                 Console.WriteLine("You don't have any " + item + "s");
             }
-            ShowHud();
+            ShowInventory();
         }
 
         static void Use(string item)
@@ -86,14 +86,14 @@ namespace Lists
             {
                 Console.WriteLine("You don't have any " + item + "s");
             }
-            ShowHud();
+            ShowInventory();
         }
 
         static void ClearInventory()
         {
             Console.WriteLine("The player has died and lost all their stuff");
             Inventory.Clear();
-            ShowHud();
+            ShowInventory();
         }
 
     }
